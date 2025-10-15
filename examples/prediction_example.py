@@ -46,7 +46,7 @@ model = Kronos.from_pretrained("NeoQuasar/Kronos-small")
 predictor = KronosPredictor(model, tokenizer, device="cuda:0", max_context=512)
 
 # 3. Prepare Data
-df = pd.read_csv("./data/XSHG_5min_600977.csv")
+df = pd.read_csv("./data/XSHG_5min_688072.csv")
 df['timestamps'] = pd.to_datetime(df['timestamps'])
 
 lookback = 400
@@ -77,4 +77,5 @@ kline_df = df.loc[:lookback+pred_len-1]
 
 # visualize
 plot_prediction(kline_df, pred_df)
+
 
